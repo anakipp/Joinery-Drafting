@@ -1,0 +1,220 @@
+import type { Material, Role } from './types';
+
+/** Default material & hardware library used by new projects. */
+export const DEFAULT_MATERIALS: Material[] = [
+  {
+    id: 'hmr20-lam',
+    code: 'M01',
+    name: { en: 'HMR board 20 mm.', th: 'ไม้ HMR หนา 20 มม.' },
+    category: 'board',
+    thickness: 20,
+    finish: { en: 'HPL laminate, both sides', th: 'ปิดผิวลามิเนต (HPL) ทั้งสองด้าน' },
+    color: '#d9c7a7',
+    hatch: 'board',
+  },
+  {
+    id: 'hmr10-mel',
+    code: 'M02',
+    name: { en: 'HMR board 10 mm.', th: 'ไม้ HMR หนา 10 มม.' },
+    category: 'board',
+    thickness: 10,
+    finish: { en: 'Melamine, white', th: 'ปิดผิวเมลามีน สีขาว' },
+    color: '#ece8df',
+    hatch: 'board',
+  },
+  {
+    id: 'hmr20-door',
+    code: 'M03',
+    name: { en: 'HMR board 20 mm. (fronts)', th: 'ไม้ HMR หนา 20 มม. (หน้าบาน)' },
+    category: 'board',
+    thickness: 20,
+    finish: { en: 'HPL laminate, both faces (balanced)', th: 'ปิดผิวลามิเนต (HPL) ทั้งสองหน้า กันบิด' },
+    color: '#b89a74',
+    hatch: 'board',
+  },
+  {
+    id: 'hmr25',
+    code: 'M04',
+    name: { en: 'HMR board 25 mm. (heavy shelf)', th: 'ไม้ HMR หนา 25 มม. (ชั้นรับน้ำหนัก)' },
+    category: 'board',
+    thickness: 25,
+    finish: { en: 'HPL laminate, both sides', th: 'ปิดผิวลามิเนต (HPL) ทั้งสองด้าน' },
+    color: '#d1bc98',
+    hatch: 'board',
+  },
+  {
+    id: 'hmr16-mel',
+    code: 'M05',
+    name: { en: 'HMR board 16 mm. (drawer box)', th: 'ไม้ HMR หนา 16 มม. (กล่องลิ้นชัก)' },
+    category: 'board',
+    thickness: 16,
+    finish: { en: 'Melamine, white', th: 'ปิดผิวเมลามีน สีขาว' },
+    color: '#f2efe8',
+    hatch: 'board',
+  },
+  {
+    id: 'quartz20',
+    code: 'M06',
+    name: { en: 'Quartz stone 20 mm.', th: 'หินควอทซ์ หนา 20 มม.' },
+    category: 'stone',
+    thickness: 20,
+    finish: { en: 'Polished, eased edge R3', th: 'ขัดเงา ลบมุม R3' },
+    color: '#c9c9c9',
+    hatch: 'stone',
+  },
+  {
+    id: 'pvc18',
+    code: 'M07',
+    name: { en: 'PVC foam board 18 mm.', th: 'แผ่น PVC โฟมบอร์ด หนา 18 มม.' },
+    category: 'board',
+    thickness: 18,
+    finish: { en: 'Waterproof, white', th: 'กันน้ำ 100% สีขาว' },
+    color: '#f4f4f4',
+    hatch: 'board',
+  },
+  {
+    id: 'rubberwood-1x2',
+    code: 'M08',
+    name: { en: 'Rubberwood frame 1"x2" (25x50 mm.)', th: 'โครงคร่าวไม้ยางพารา 1"x2" (25x50 มม.)' },
+    category: 'timber',
+    thickness: 25,
+    width: 50,
+    finish: { en: 'Kiln-dried, anti-termite treated', th: 'อบแห้ง อัดน้ำยากันปลวก' },
+    color: '#c79b62',
+    hatch: 'timber',
+  },
+  {
+    id: 'hmr10-lam',
+    code: 'M09',
+    name: { en: 'HMR board 10 mm. (cladding)', th: 'ไม้ HMR หนา 10 มม. (แผ่นบุผนัง)' },
+    category: 'board',
+    thickness: 10,
+    finish: { en: 'HPL laminate face', th: 'ปิดผิวลามิเนต (HPL)' },
+    color: '#a88b67',
+    hatch: 'board',
+  },
+  {
+    id: 'ply20-marine',
+    code: 'M10',
+    name: { en: 'Marine plywood 20 mm.', th: 'ไม้อัดกันน้ำ (มารีน) หนา 20 มม.' },
+    category: 'board',
+    thickness: 20,
+    finish: { en: 'HPL laminate, sealed edges', th: 'ปิดผิวลามิเนต ซีลขอบกันน้ำ' },
+    color: '#c8a77a',
+    hatch: 'ply',
+  },
+  {
+    id: 'glass5',
+    code: 'M11',
+    name: { en: 'Tempered glass 5 mm. in alu. frame', th: 'กระจกนิรภัยเทมเปอร์ 5 มม. กรอบอะลูมิเนียม' },
+    category: 'glass',
+    thickness: 20,
+    finish: { en: 'Clear / tinted, alu. frame 20 mm.', th: 'ใส / ชา กรอบอะลูมิเนียม 20 มม.' },
+    color: '#cfe3ea',
+    hatch: 'glass',
+  },
+  {
+    id: 'mdf18-paint',
+    code: 'M12',
+    name: { en: 'MDF 18 mm. painted', th: 'ไม้ MDF หนา 18 มม. ทำสี' },
+    category: 'board',
+    thickness: 18,
+    finish: { en: '2K polyurethane paint, matt', th: 'ทำสีโพลียูรีเทน 2K ด้าน' },
+    color: '#e6e1d6',
+    hatch: 'board',
+  },
+  {
+    id: 'pvc-edge',
+    code: 'E01',
+    name: { en: 'PVC edge banding', th: 'ปิดขอบ PVC' },
+    category: 'finish',
+    thickness: 2,
+    finish: { en: '2 mm. exposed edges / 1 mm. concealed', th: 'หนา 2 มม. ขอบที่มองเห็น / 1 มม. ขอบซ่อน' },
+    color: '#8a7a64',
+    hatch: 'none',
+  },
+  {
+    id: 'rail-alu',
+    code: 'H01',
+    name: { en: 'Hanging rail, oval aluminium', th: 'ราวแขวนผ้าอะลูมิเนียม ทรงรี' },
+    category: 'hardware',
+    thickness: 0,
+    finish: { en: 'Anodised, with end supports', th: 'อะโนไดซ์ พร้อมขายึดปลาย' },
+    color: '#9aa3ab',
+    hatch: 'metal',
+  },
+  {
+    id: 'hinge-soft',
+    code: 'H02',
+    name: { en: 'Concealed hinge Ø35, soft-close', th: 'บานพับถ้วย Ø35 ระบบปิดนุ่มนวล' },
+    category: 'hardware',
+    thickness: 0,
+    finish: { en: 'Full overlay, clip-on', th: 'บานทับขอบ แบบกดล็อก' },
+    color: '#9aa3ab',
+    hatch: 'metal',
+  },
+  {
+    id: 'slide-soft',
+    code: 'H03',
+    name: { en: 'Drawer slide, full extension soft-close', th: 'รางลิ้นชักลูกปืน เปิดสุด ปิดนุ่มนวล' },
+    category: 'hardware',
+    thickness: 0,
+    finish: { en: 'Load 35 kg', th: 'รับน้ำหนัก 35 กก.' },
+    color: '#9aa3ab',
+    hatch: 'metal',
+  },
+  {
+    id: 'handle-bar',
+    code: 'H04',
+    name: { en: 'Bar handle 160 mm. c/c', th: 'มือจับแบบก้าน ระยะรู 160 มม.' },
+    category: 'hardware',
+    thickness: 0,
+    finish: { en: 'Matt black aluminium', th: 'อะลูมิเนียม สีดำด้าน' },
+    color: '#333333',
+    hatch: 'metal',
+  },
+  {
+    id: 'plinth-alu',
+    code: 'M13',
+    name: { en: 'Aluminium plinth / kick board 100 mm.', th: 'บัวเชิงตู้อะลูมิเนียม สูง 100 มม.' },
+    category: 'metal',
+    thickness: 2,
+    finish: { en: 'Brushed, with adjustable legs', th: 'ผิวแฮร์ไลน์ พร้อมขาปรับระดับ' },
+    color: '#b8bec4',
+    hatch: 'metal',
+  },
+];
+
+export const DEFAULT_ASSIGN: Record<Role, string> = {
+  carcass: 'hmr20-lam',
+  back: 'hmr10-mel',
+  shelf: 'hmr20-lam',
+  front: 'hmr20-door',
+  drawerBox: 'hmr16-mel',
+  countertop: 'quartz20',
+  plinth: 'hmr20-lam',
+  frame: 'rubberwood-1x2',
+  cladding: 'hmr10-lam',
+  edge: 'pvc-edge',
+  rail: 'rail-alu',
+  hinge: 'hinge-soft',
+  slide: 'slide-soft',
+  handle: 'handle-bar',
+};
+
+export function cloneMaterials(): Material[] {
+  return DEFAULT_MATERIALS.map((m) => ({ ...m, name: { ...m.name }, finish: { ...m.finish } }));
+}
+
+export function findMaterial(materials: Material[], id: string | null | undefined): Material | undefined {
+  if (!id) return undefined;
+  return materials.find((m) => m.id === id);
+}
+
+/** Next free material code for a category prefix (M, H, E). */
+export function nextCode(materials: Material[], prefix: string): string {
+  let n = 1;
+  const codes = new Set(materials.map((m) => m.code));
+  while (codes.has(`${prefix}${String(n).padStart(2, '0')}`)) n++;
+  return `${prefix}${String(n).padStart(2, '0')}`;
+}
