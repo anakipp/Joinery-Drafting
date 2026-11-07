@@ -4,6 +4,8 @@ A browser app for interior designers. It drafts built-in joinery and guides the 
 
 แอปสำหรับนักออกแบบภายใน ใช้เขียนแบบงานเฟอร์นิเจอร์บิวท์อินพร้อมคู่มือรายละเอียดการก่อสร้าง ใส่ข้อมูลโจทย์ (รูปภาพ สเก็ตช์ ขนาด วัสดุ การใช้งาน) แล้วแอปจะสร้างชุดแบบ 2 แผ่น ได้แก่ แปลน รูปด้าน รูปตัด และแบบขยาย ตรวจทาน แก้ไข และแสดงความเห็นได้ แล้วส่งออกเป็นไฟล์ CAD (DXF)
 
+**Live app / ใช้งานออนไลน์:** https://anakipp.github.io/Joinery-Drafting/
+
 ## Workflow
 
 1. **Brief & input / ข้อมูลและโจทย์**
@@ -55,6 +57,16 @@ npm run build
 ```
 
 `npm run build` outputs a static site in `dist/` that can be hosted anywhere (GitHub Pages, Netlify, an internal server). Projects autosave to the browser's local storage. Use **Save / Open** to keep `.joinery.json` files.
+
+### GitHub Pages
+
+`.github/workflows/deploy-pages.yml` tests, builds and deploys the app on every push to `main`. It can also be run by hand from the Actions tab ("Run workflow").
+
+One-time setup in the repository:
+1. Under **Settings → Pages → Build and deployment**, set **Source** to **GitHub Actions**.
+2. Under **Settings → General → Default branch**, choose `main`. The `github-pages` environment only accepts deployments from the default branch.
+
+The site is served at `https://<owner>.github.io/<repo>/`. Asset paths are relative (`base: './'`), so it works under that subpath without further configuration.
 
 ### Code map
 
